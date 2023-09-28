@@ -1,0 +1,80 @@
+{%extends 'base.html'%}
+{%load static %}
+{%block conteudo%}
+    <div class="container-fluid"> <!--Inicio container-->
+        <div class="row header align-items-center"> <!--Inicio header-->
+          <div class="col px-5"> <!--Inicio logo-->
+            <a href="/"><img class="img-fluid" src="{% static '/img/logo.png'%}" alt="logo if-tour"></a>
+          </div> <!--Fim logo--> 
+        </div> <!--Fim header-->
+        <div class="row v-full px-5 bg-verde align-items-start"> <!-- Inico conteudo-->
+          <div class="col-12 col-md-12 col-lg-6 p-5"> <!-- Inico conteudo esquerdo-->
+            <div class= "container-fluid"> <!-- Inicio form selecao sala -->
+              <div class="row py-5">  <!-- Inicio 1ª linha form selecao sala -->
+                <div class="col-12 col-sm-12 col-md-6 px-0 mx-0"> <!--Bloco Selec bloco-->
+                    <select class="form-select form-select-lg mb-3 select-verde p-3" aria-label=".form-select-lg example" onchange="window.location.href=this.value">
+                        <option value="{%url 'espacos:bloco_padrao'%}"> Selecione um bloco </option>
+                          
+                        {% for b in blocos %}
+                          {%if b.id == bloco.id%}
+                              <option selected value="{% url 'espacos:bloco' id=b.id %}"> {{b.nome}} </option>
+                              {%else%}
+                              <option value="{% url 'espacos:bloco' id=b.id %}"> {{b.nome}} </option>
+                              {%endif%}
+                          {% endfor %}
+                      {%endfor}
+                    </select>
+                </div> <!--Fim bloco selec bloco-->
+                <div class="col-12 col-sm-12 col-md-6 px-0 mx-0">  <!--Bloco Selec Piso-->
+                      <select class="form-select form-select-lg mb-3 select-verdeclaro p-3" aria-label=".form-select-lg example" onchange="window.location.href=this.value">
+                        <option value="{%url 'espacos:bloco_padrao'%}"> Selecione um piso </option>
+                        {% for p in pisos %}
+                            {%if p.id == piso.id%}
+                            <option selected value="{% url 'espacos:piso' id=p.id %}"> {{p.nome}} </option>
+                            {%else%}
+                            <option value="{% url 'espacos:piso' id=p.id %}"> {{p.nome}} </option>
+                            {%endif%}
+                        {% endfor %}
+                      </select> 
+                </div>   <!--Fim bloco Selec Piso--> 
+              </div>  <!-- Fim 1ª linha form selecao sala -->
+              <div class="row"> <!-- Ini 2ª linha form selecao sala -->
+                {%if bloco %}
+                <div class="col mb-5">
+                  <p class="h3">{{bloco.legenda}}</p>
+                </div>
+                {%endif%}
+              </div> <!-- Fim 2ª linha form selecao sala -->
+              <div class="row"> <!-- Ini 3ª linha form selecao sala -->
+                {% if salas %}
+                <fieldset class="container-fluid border mt-5">
+                  <legend class="text-light legenda">Salas</legend>
+                  <div class="row row-cols-auto justify-content-center text-center">
+                    {% for s in salas %}
+                    <div class="col mb-3 mt-3">
+                      <a href="/sala/{{s.id}}"><img class="img-fluid img-thumbnail sla-thumb"
+                        src="/media/{{s.imagem}}" alt=""> 
+                      </a>  
+                    </div>
+                    {% endfor %}
+                  </div>               
+                {%else%}
+                   <div class="col mb-3 mt-3">
+                    <p>não há salas cadastradas neste piso</p>   
+                   </div> 
+                  </fieldset>
+                {%endif%}  
+              </div><!-- Fim 3ª linha form selecao sala -->
+            </div><!-- Fim form selecao sala -->
+          </div>  <!-- Fim conteudo esquerdo-->
+          <div class="col-12 col-md-12 col-lg-6  align-middle my-auto"> <!-- Inico conteudo direito-->            
+              <img src="/media/{{bloco.imagem}}" class="img-fluid mb-5 mx-3"/>
+          </div>  <!-- Fim conteudo direito-->
+        </div>  <!-- Fim conteudo-->
+        <div class="row footer align-items-center"> <!--inicio footer-->
+          <div class="col text-center px-5 text-light">
+            &copy; 2022 - IF Tour
+          </div>
+        </div> <!--Fim footer-->     
+    </div> <!--Fim container-->
+{%endblock%}

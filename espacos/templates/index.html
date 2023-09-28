@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+{%load static %}
+{%block conteudo%}  
+  <div>
+        <div class="container-fluid">
+          <div id="inicio" class="row v-full">
+            <div class="col-12 col-sm-12 col-md-8 col-lg-6 align-self-center mx-auto text-center p-5">
+                <a href="/">
+                    <img class="img-fluid mx-auto p-2 logo-index" src="{% static 'img/logo.png'%}" alt="logo if-tour" width="200">
+                </a>
+                <p class="h2 p-4 my-4 texto-index">Explore o IFRN, campus São Paulo do Potengi, de maneira
+                    totalmente <br> virtual, explorando o seu principal bloco, conhecendo suas salas, laboratórios e serviços.</p>
+                <a href="bloco/" class="btn btn-dark btn-lg px-4 my-2 botao-acessar">Acessar</a>
+            </div>
+        </div>
+        
+            <div class="row">
+              <div class="col-12 px-5">
+                <h1 class="p-4 text-dark text-center custom-h1">IFRN - SPP</h1>
+                <p class="h4 p-4 text-dark text-center">Explore o IFRN,  Campus São Paulo do Potengi, de maneira totalmente virtual, explorando os seus principais blocos, conhecendo suas salas, laboratórios e serviços.</p>
+              </div>
+              <div class="col-12 px-5">
+                <ul class="custom-ul row justify-content-md-center text-center" >
+                    {% for i in lista %}
+                    <li class="col-lg-3">
+            
+                        <img class="rounded-circle" src="media/{{i.imagem}}" alt="{{i.nome}}" width="300" height="290">
+                        <h5 class="text-dark">{{i.nome}}</h5>
+                        <p class="text-dark p-2 h5">{{i.legenda}}</p>
+                        <p><a class="btn btn-dark" href="bloco/{{b.bloco}}" role="button">Detalhar</a></p>
+                    </li>
+                      
+                    {% empty %}
+                    <li>
+                        <h6 class="text-center py-2">Nenhum bloco cadastrado.</h6>
+                    </li> 
+                    {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <div class="row footer align-items-center">
+              <div class="col text-center px-5 text-dark">
+                &copy; <span id="ano">2023</span> - IF Tour
+              </div>
+            </div>
+          </div>
+  {%endblock%}

@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,300&display=swap');
+.logo-index{
+  background-color: rgba(255, 255, 255, 0.639);
+  border-radius: 15px;
+}
+
+.texto-index{
+  background-color: #000000ab;
+  color: white;
+  border-radius: 10px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.custom-h1{
+  font-family: 'Raleway', sans-serif;
+}
+
+
+.botao-acessar{
+  background-color: rgba(255, 255, 255, 0.804);
+  border-radius: 20px;
+  color: #30332E;
+}
+
+p, select{
+  font-family: 'Abel', sans-serif;
+}
+
+h3{
+  font-family: 'PT Mono', monospace;
+}
+
+body{
+    height: 100vh;
+    background-position: center center;   
+    background-color: #F4F7ED;
+    color: #6C6B6B;
+
+}
+#inicio{
+    background-image: url('/media/blocos/AGORA_VAI.jpg');
+    background-size:cover;
+}
+
+#adm{
+  background-color:#30332E;
+}
+
+.header, .footer{
+  height: 65px;
+}
+
+.footer{
+  background-color: #30332e;
+  font-family: 'Abel', sans-serif;
+}
+.select-verde{
+    background-color: #61685b;
+    border: 0;
+    color: #ffffff;
+    border-radius: 0px;
+    font-size: xx-large;
+   text-align:center;
+}
+
+.select-verdeclaro{
+    background-color: #8E938A;
+    border: 0;
+    color: #ffffff;
+    border-radius: 0px;
+    font-size: xx-large;
+    text-align:center;
+}
+
+#inicio .header{
+  background-color: transparent !important;
+}
+
+.v-full{
+  min-height: calc(100vh - 130px); 
+  height:calc(100% - 130px); 
+}
+
+
+.bg-verde{
+  background-color: #ffffff00;
+}
+.bg-verdeclaro{
+  background-color: #8E938A;
+}
+
+.bg-escuro{
+  background-color: #30332e;
+}
+
+.texto_cen{
+  background-color: black;
+  opacity: 0.7;
+}
+
+.card-title{
+  background-color: #7D8776;
+}
+
+.sla-thumb{
+  height: 100px;
+  width: 100px;
+}
+
+.legenda{
+    margin-top: -39px;
+    border-radius: 3px;
+    background-color: #7D8776;
+    width: fit-content;
+    padding: 0px 48px 0px 48px;
+}
+
+.salas{
+  padding: 0px 0px 0px 10px;
+}
+  
+ #h-absolute {
+    position: relative;
+    width: 100%;
+    z-index: 999;
+   min-height: 80px;
+}
+
+#c-360{
+  position: relative;
+}
+#f-absolute{
+    position: relative;
+    width: 100%;
+    z-index: 999;
+    min-height: 300px;
+}
+
+#c-360.aberto{
+  min-height: calc(100vh - 400px);    
+}
+
+#c-360{
+   transition: all 0.5s ease-in-out;
+   min-height: calc(100vh - 155px);
+}
+
+#blocoA{
+    position: absolute;
+    bottom: 10vh;
+    z-index: 999;
+    height: 130px;
+    width: 120px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+
+#blocoA:hover{
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+
+.listando{
+  overflow-y: auto;
+  height: 100px;
+}
+
+.ptcima {
+  background-color: #D9D9D9;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  transition: all 0.5s ease-in-out;
+}
+
+
+.botao-sala:hover{
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.footer {
+  background-color: #D9D9D9;
+  font-family: 'Abel', sans-serif;
+}
+
+.v-full {
+  min-height: calc(100vh - 120px);
+  height: calc(100% - 120px);
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.custom-ul {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    list-style: none;
+}
+
+.custom-ul li {
+  flex: 0 0 auto;
+  margin-right: 15px;
+  text-align: center;
+  display: inline-block;
+}
+
+
+#exTab1 .tab-content {
+  color : rgb(0, 0, 0);
+  padding : 5px 15px;
+}
+
+#exTab2 h3 {
+  color : rgb(0, 0, 0);
+  padding : 5px 15px;
+}
+
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 0;
+}
+
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
+#exTab3 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+#c-360{
+  position: relative;
+  z-index: 99;
+}
+
+#botao-tab{
+  position: absolute;
+}
+
+#links-secundarios{
+  z-index: 999;
+}
+
+img.rounded-circle {
+  background-color: #e9f3e1;
+  padding: 10px;
+}
+
+/*Css do login_adm.html e cadastro_adm.html*/
+
+.fundo {
+    height: 100vh;
+    background-color: black;
+    background-image: url('/media/blocos/dji16682579838691.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(10px);
+}
+
+
+#nao_tem_conta{
+    text-decoration: none;
+}
+
+.formulario{
+    max-width: 400px;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.758);
+    border-radius: 20px;
+}
+
+.custom-btn {
+    color: black; 
+    font-size: 16px; 
+    background-color: #3d7703d6; 
+}
+
+#toogle_coment{
+  width: 100px;
+}
+
+/*css das páginas de salas*/
+
+.botao-sala{
+  text-decoration: none;
+  background-color: #c5c5c59c;
+  color: #000000;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.estrelas input[type=radio] {
+  display: none;
+}
+.estrelas label i.fa{
+  font-size: 2.5em
+}
+.estrelas label i.fa:before {
+  content:'\f005';
+  color: #FC0;
+}
+.estrelas input[type=radio]:checked ~ label i.fa:before {
+  color: #CCC;
+}
+
+
+.imagem_360 {
+  z-index: -1; /* Define um z-index negativo para colocar a imagem atrás dos outros elementos */
+}
+
+#trespontos{
+  position: relative;
+  z-index: 999;
+}

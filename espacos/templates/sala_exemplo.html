@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+{%load static %}
+{%block conteudo%}
+<!--código que Pedrina fez não mudei absolutamente nada!-->
+
+<div class="container-fluid p-0 m-0">
+  <div class="row">
+    <div class="col-4">
+     <div class="row align-items-center bm-0">
+         <a href="/"> 
+             <img class="img-fluid p-2 salasrounded"
+             src="{% static '/img/logo.png'%}" alt="logo if-tour">
+         </a>
+     </div>
+     <div class="row">
+       <div class="container-fluid">
+           <div class="row">
+               <div class="col">
+                 <h1 class="text-light">
+                   {{sala.nome}}  - {{media}}/5.0
+                 </h1>
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-6">
+                 <p class="text-light">
+                   {{sala.legenda}}
+                 </p>
+               </div>
+               <div class="col-6">
+                 <h1 id="bt-comentar" class="btn btn-secondary btn-sm my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Adicionar Comentário</h1>
+                 <ul class="text-light listando h4">                    
+                   {%for c in comentarios%}
+                     <li>{{c.nome}}, {{c.comentario}}, {{c.nota}}, {{c.dt_cad}}</li>
+                   {%endfor%}
+                 </ul>      
+               </div>
+           </div>
+       </div>
+     </div>
+     <div class="row">
+       <a id="blocoA" href="/piso/{{piso.id}}"> 
+         <img class="img-fluid m-4" src="/media/{{bloco.imagem}}" alt="blocoA if-tour">
+       </a>
+     </div>
+    </div>
+    <div class="col-8">
+      <!--<iframe id="c-360" class="row v-full"  width="100%" height="100%" allowfullscreen="yes" scrolling="no" allowvr="yes" src="/360/{{sala.id}}"></iframe>-->        
+       <a-scene background="color: #ECECEC">
+         <a-assets>
+           <img id="tste" src="/media/{{sala.img_360}}">
+         </a-assets>
+         <a-sky src="#tste"></a-sky>
+       </a-scene>
+    </div>
+  </div>
+        
+{%endblock%}

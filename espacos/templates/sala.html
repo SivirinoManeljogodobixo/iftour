@@ -1,0 +1,132 @@
+{%extends 'base.html'%}
+{%load static %}
+{%block conteudo%}
+<!--código que marcus fez peguei o código de pedrina e fiz as mudanças que precisavam-->
+
+<div class=" col-8 imagem_360">        
+  <a-scene background="color: #ECECEC">
+    <a-assets>
+      <img id="tste" src="/media/{{sala.img_360}}">
+    </a-assets>
+    <a-sky src="#tste"></a-sky>
+  </a-scene>
+</div>
+
+<button class="btn btn-white sidebar mx-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" id="trespontos"><i class="bi bi-justify text-dark" style="font-size: 30px"></i>hgy</button>
+
+<div class="container-fluid">
+<div class="row justify-content-end py-2">
+
+<div class="col-12 col-md-8" id="botao-tab">
+    
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+
+        <div class="col-12 border">
+            <div class="offcanvas-header">
+              <h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"><strong>{{sala.nome}}</strong></h4>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="col-12 py-2">
+                <ul class="justify-content-start">
+                  <li class="mx-2">{{bloco.nome}}</li>
+                  <li class="mx-2">{{piso.nome}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="offcanvas-body border">
+            <p class="h6"><strong>Avaliação</strong></p>
+            <h1 class="text-dark">
+             {{media}}/5.0
+           </h1>
+                <div class="container mt-5">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active"  data-bs-toggle="tab" href="#sobre">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  data-bs-toggle="tab" href="#comentarios">Comentários</a>
+                        </li>
+                    </ul>
+            
+                    <div class="tab-content">
+                        <div id="sobre" class="tab-pane active">
+                            <p class="py-3">{{sala.legenda}}</p>
+                        </div>
+                        <div id="comentarios" class="tab-pane">
+                         <ul class="text-dark listando h4 py-2">                    
+                           {%for c in comentarios%}
+                             <li style="text-decoration: none;">{{c.nome}}, {{c.comentario}}, {{c.nota}}, {{c.dt_cad}}</li>
+                           {%endfor%}
+                         </ul> 
+                        </div>
+                    </div>
+                </div>
+          </div>
+
+          <div class="col-12">
+            <div class="d-flex justify-content-between">
+
+                <button id="bt-comentar" type="button" class="btn btn-secondary btn-lg m-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Avaliar
+                </button> <!--vou mudar a aparencia quando tiver no django data do comentário 23-09-2023-->
+
+                <a href="/">
+                    <button class="btn btn-secondary btn-lg m-4">Sair <strong>X</strong></button>
+                </a> <!--vou mudar a aparencia quando tiver no django data do comentário 23-09-2023-->
+            </div>
+          </div>
+    </div>
+</div>
+
+<!--Links de voltar para página, entrar para adm, cadastrar adm-->
+<div class="col-12 col-md-3 mx-2 justify-content-start" style="font-size: 18px;" id="links-secundarios">
+    <ul class="opcoes">
+        <li><a class="mx-4 text-dark botao-sala p-2" href="/">Inicio</a></li>
+        <li><a class="mx-4 text-dark botao-sala p-2" href="{% url 'login_adm' %}">Entrar</a></li>
+        <li><a class="mx-4 text-dark botao-sala p-2" href="{% url 'cadastro_adm' %}">Cadastrar</a></li>
+    </ul>
+</div>
+
+<!--modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog mx-auto">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h5 class="modal-title" id="exampleModalLabel">{{sala.nome}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="estrelas">
+                        <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
+                        <label for="cm_star-1"><i class="fa"></i></i></label>
+                        <input type="radio" id="cm_star-1" name="fb" value="1"/>
+                        <label for="cm_star-2"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-2" name="fb" value="2"/>
+                        <label for="cm_star-3"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-3" name="fb" value="3"/>
+                        <label for="cm_star-4"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-4" name="fb" value="4"/>
+                        <label for="cm_star-5"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-5" name="fb" value="5"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput"></label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1"></label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Deixe seu comentário"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-success">Salvar comentário</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{%endblock%}
